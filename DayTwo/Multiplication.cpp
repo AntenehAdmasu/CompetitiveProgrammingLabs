@@ -42,61 +42,6 @@ string adder(string firstNum, string secondNum, string sign)
     return res;
 }
 
-
-string subtractor(string firstNum, string secondNum, string sign)
-{
-
-    reverse(firstNum.begin(), firstNum.end());
-    reverse(secondNum.begin(), secondNum.end());
-
-    string result = "";
-
-    for (int i = 0; i < secondNum.length(); i++)
-    {
-        int dif = (firstNum[i] - '0') - (secondNum[i] - '0');
-
-        if (dif < 0)
-        {
-            dif += 10;
-            result[i] = (dif + '0');
-
-            if ((firstNum[i + 1] - '0') != 0)
-            {
-                firstNum[i + 1] = ((firstNum[i + 1] - '0') - 1) + '0';
-            }
-            else
-            {
-                int counter = i + 1;
-                while (counter < firstNum.length())
-                {
-                    if ((firstNum[counter] - '0') == 0)
-                    {
-                        firstNum[counter] = (9 + '0');
-                        counter++;
-                    }
-                    else
-                    {
-                        firstNum[counter] = ((firstNum[counter] - '0') - 1) + '0';
-                        break;
-                    }
-                }
-            }
-        }
-
-        result.push_back(dif + '0');
-    }
-
-    for (int i = secondNum.length(); i < firstNum.length(); i++)
-    {
-        result.push_back(firstNum[i]);
-    }
-
-    reverse(result.begin(), result.end());
-
-    cout << sign + result << endl;
-    return sign + result;
-}
-
 string multiply(string firstNum, string secondNum, string sign){
     reverse(firstNum.begin(), firstNum.end());
     reverse(secondNum.begin(), secondNum.end());
