@@ -42,11 +42,18 @@ string adder(string firstNum, string secondNum, string sign)
     return res;
 }
 
+<<<<<<< HEAD
 string multiply(string firstNum, string secondNum, string sign)
 {
     reverse(firstNum.begin(), firstNum.end());
     reverse(secondNum.begin(), secondNum.end());
 
+=======
+string multiply(string firstNum, string secondNum, string sign){
+    reverse(firstNum.begin(), firstNum.end());
+    reverse(secondNum.begin(), secondNum.end());
+    
+>>>>>>> 83573348d97345b3848ddb0414182bea7edd7ebc
     if (secondNum.length() > firstNum.length())
         swap(firstNum, secondNum);
 
