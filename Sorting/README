@@ -1,0 +1,6 @@
+This repo demonstrates sorting with java arraylists
+	- Runner class is the main class that has a method to 
+	generate numbers from 0 to the given size
+	- Instantiate an object from the other classes
+	(Selection, Insertion, Merge or Quick) and call the 
+	sort method by passing the generated arraylist.
