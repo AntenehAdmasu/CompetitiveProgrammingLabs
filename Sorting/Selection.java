@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Selection {
 
@@ -7,12 +8,7 @@ public class Selection {
 
             for (int j = i; j < nums.size(); j++) {
                 if(nums.get(j) < nums.get(i)){
-                    int temp = nums.get(i);
-                    int J = nums.get(j);
-                    nums.remove(i);
-                    nums.add(i, J);
-                    nums.remove(j);
-                    nums.add(j,temp);
+                    Collections.swap(nums, i, j);
                 }
             }
         }

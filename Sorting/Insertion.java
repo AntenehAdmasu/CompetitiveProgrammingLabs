@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Insertion {
     public ArrayList<Integer> sort(ArrayList<Integer> nums) {
@@ -9,14 +10,7 @@ public class Insertion {
             int j = i -1;
 
             while( j >= 0 && (nums.get(key) < nums.get(j))){
-                int temp = nums.get(key);
-                int J = nums.get(j);
-
-                nums.remove(key);
-                nums.add(key, J);
-                nums.remove(j);
-                nums.add(j,temp);
-
+                Collections.swap(nums, key, j);
                 key --;
                 j --;
             }
