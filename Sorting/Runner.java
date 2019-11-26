@@ -30,17 +30,16 @@ public class Runner {
 
 
     public static ArrayList<Integer> generateRandomNumbers(int size){
-        HashMap<Integer, Integer > generatedNumbers = new HashMap<>();
         ArrayList<Integer> nums = new ArrayList<>();
 
-        while(nums.size() < size) {
-            Random random = new Random();
-            int number = random.nextInt(size) + 1;
-            if(!generatedNumbers.containsKey(number)){
-                generatedNumbers.put(number, number);
-                nums.add(number);
-            }
+        for (int i = 0; i < size; i++) {
+            nums.add(i);
         }
+        for (int i = 0; i < size; i++) {
+            int rand = new Random().nextInt(size - i) + 1;
+            Collections.swap(nums, i, rand);
+        }
+        
         return nums;
     }
 
