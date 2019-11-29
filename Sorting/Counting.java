@@ -3,10 +3,8 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class Counting {
-    public ArrayList<Integer> sort(ArrayList<Integer> numbers){
-        int min = Collections.min(numbers);
-        int max = Collections.max(numbers);
-
+    public ArrayList<Integer> sort(ArrayList<Integer> numbers){ 
+        
         HashMap<Integer, Integer> occurence = new HashMap<>();
         ArrayList<Integer> sorted = new ArrayList<>();
 
