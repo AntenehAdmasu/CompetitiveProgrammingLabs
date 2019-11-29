@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -6,10 +7,10 @@ import java.util.Random;
 public class Runner {
     public static void main(String[] args) {
 
-        ArrayList<Integer> randomNumbers = generateRandomNumbers(33);
+        ArrayList<Integer> randomNumbers = generateRandomNumbers(10);
 
-        Selection selection = new Selection();
-        ArrayList<Integer> sortedBySelection = selection.sort(randomNumbers);
+//        Selection selection = new Selection();
+//        ArrayList<Integer> sortedBySelection = selection.sort(randomNumbers);
 
 //        Insertion insertion = new Insertion();
 //        ArrayList<Integer> sortedByInsertion = insertion.sort(randomNumbers);
@@ -21,15 +22,13 @@ public class Runner {
 //        Quick quick = new Quick();
 //        ArrayList<Integer> sortedByQuickSort = quick.sort(randomNumbers);
 
-        System.out.println("\n+++++++++ AFTER SORTING ++++++++++");
-        for (int i = 0; i < sortedBySelection.size(); i++) {
-            System.out.println(sortedBySelection.get(i));
-        }
+//        Counting counting = new Counting();
+//        ArrayList<Integer> sortedByCounting = counting.sort(randomNumbers);
+
     }
 
 
-
-    public static ArrayList<Integer> generateRandomNumbers(int size){
+    public static ArrayList<Integer>  generateRandomNumbers(int size){
         ArrayList<Integer> nums = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
@@ -39,9 +38,11 @@ public class Runner {
             int rand = new Random().nextInt(size - i) + 1;
             Collections.swap(nums, i, rand);
         }
-        
+        for (int i = 0; i < size; i++) {
+            System.out.println("Num: " + i);
+        }
         return nums;
+
     }
 
 }
-.
