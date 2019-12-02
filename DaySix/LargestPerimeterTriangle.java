@@ -21,13 +21,13 @@ public class LargestPerimeterTriangle {
     public static void quickSort(int initialIndex, int finalIndex, int[] array) {
 
         if (initialIndex < finalIndex) {
-            int pivIndex = getSortedPivotIndex(initialIndex, finalIndex, array);
+            int pivIndex = getIndex(initialIndex, finalIndex, array);
             quickSort(initialIndex, pivIndex - 1, array);
             quickSort(pivIndex + 1, finalIndex, array);
         }
     }
 
-    public static int getSortedPivotIndex(int intialIndex, int finalIndex, int[] array) {
+    public static int getIndex(int intialIndex, int finalIndex, int[] array) {
         int pivot = array[intialIndex];
         int pivotIndex = intialIndex;
 
@@ -42,18 +42,16 @@ public class LargestPerimeterTriangle {
 
             if (intialIndex < finalIndex) {
                 int temp = array[intialIndex];
-                int temp2 = array[finalIndex];
 
-                array[intialIndex] = temp2;
+                array[intialIndex] = array[finalIndex];
                 array[finalIndex] = temp;
             }
         }
 
         if (finalIndex > pivotIndex) {
             int temp = array[pivotIndex];
-            int temp2 = array[finalIndex];
 
-            array[pivotIndex] = temp2;
+            array[pivotIndex] = array[finalIndex];
             array[finalIndex] = temp;
 
             return finalIndex;
