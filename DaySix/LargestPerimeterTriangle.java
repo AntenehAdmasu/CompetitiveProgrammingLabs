@@ -5,17 +5,12 @@ public class LargestPerimeterTriangle {
 
 
         for (int i = A.length - 1; i >=0; i--) {
-            System.out.println("i is " + i );
             if(i > 2){
-                System.out.println("in if");
                 if(A[i-2] + A[i-1] > A[i]){
-                    System.out.println(A[i] + " i " + A[i - 1] + " i " + A[i - 2]);
                     return A[i-2] + A[i-1] + A[i];
                 }
             }else{
-                System.out.println("in else");
                 if(A[0] + A[1] > A[2]){
-                    System.out.println(A[i] + " is " + A[i - 1] + " is " + A[i - 2]);
                     return A[2] + A[1] + A[0];
                 }
             }
