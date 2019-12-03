@@ -53,15 +53,12 @@ public class MergeTwoSortedLists {
 
 
         while((l1 != null) && (l2 != null)){
-            System.out.print("Comparing " + l1.val + " and " + l2.val);
             if(l1.val < l2.val ){
-                System.out.println(" putting " + l1.val);
 
                 head.next = l1;
                 head = l1;
                 l1 = l1.next;
             }else{
-                System.out.println(" putting " + l2.val);
 
                 head.next = l2;
                 head = l2;
@@ -69,20 +66,9 @@ public class MergeTwoSortedLists {
             }
 
 
-//            System.out.println("first " + (l1.next == null));
-//            System.out.println("second " + (l2.next == null));
-
         }
 
         head.next = l1 == null? l2 : l1;
-
-//        if(l1 == null){
-//            head.next = l2;
-////            l1.next = l2;
-//        }else{
-//            head.next = l1;
-////            l2.next = l1;
-//        }
 
         return pointer.next;
     }
