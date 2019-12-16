@@ -10,28 +10,38 @@ class CarFleet {
 
         System.out.println("Fleet is " + new CarFleet().carFleet(12,position,speed));
     }
-    public int carFleet(int target, int[] position, int[] speed){
+     public int carFleet(int target, int[] position, int[] speed){
+
+        if(position.length == 0 || position.length == 1) return position.length;
 
         quickSort(0, position.length - 1, position, speed);
 
-        if(position.length == 0 || position.length == 1) return position.length;
+
         float[] timeRemaining = new float[position.length];
         float mintime = 0;
-
+        
+         for (int i = 0; i < position.length; i++) {
+            timeRemaining[i] = (float)(target - position[i])/speed[i];
+        }
         int length = timeRemaining.length;
+
         boolean isFleet = false;
         int fleet = 1;
         for (int i = 0; i < length - 1; i++) {
             if (i == 0) mintime = timeRemaining[i];
             mintime = timeRemaining[i] > mintime ? timeRemaining[i]: mintime;
 
+
             if ((timeRemaining[i] >= timeRemaining[i+1])){
                 if (timeRemaining[i] < mintime){
                     continue;
                 }
                 else{
-                    if (isFleet == false) isFleet = true;
+                    if (isFleet == false){
+                        isFleet = true;
+                    }
                 }
+
             }else {
                 if(timeRemaining[i+1] < mintime) continue;
                 fleet++;
@@ -39,6 +49,8 @@ class CarFleet {
             }
 
         }
+
+       
         return fleet;
     }
     public static void quickSort(int initialIndex, int finalIndex, int[] array, int array2[]) {
