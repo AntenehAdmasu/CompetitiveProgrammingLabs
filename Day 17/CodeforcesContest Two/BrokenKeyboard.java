@@ -13,7 +13,9 @@ public class BrokenKeyboard {
         String word = scanner.nextLine();
         String sub = scanner.nextLine();
         String[] subs = sub.split(" ");
+
         getSubstringsNumber(wordlen,sublen,word,subs);
+
     }
     public static void getSubstringsNumber(int wordlen, int charslen, String word, String[] subs){
 
@@ -36,7 +38,8 @@ public class BrokenKeyboard {
         }
 
         if(others.size() == 0){
-            int max = (word.length() * (word.length() + 1)) / 2;
+            long max = ((long)word.length() * (long)(word.length() + 1)) / 2;
+            System.out.println(max);
             return;
         }
 
@@ -49,11 +52,11 @@ public class BrokenKeyboard {
             }
             total += (n * (n+1)) / 2;
         }
-        long last = word.length() - others.get(others.size() -1) - 1;
+        long last = (long)word.length() - (long)others.get(others.size() -1) - 1;
         long lastMult = (last * (last+1)) /2;
 
         total += lastMult;
 
-        System.out.println(total);
+        System.out.println((total));
     }
 }
