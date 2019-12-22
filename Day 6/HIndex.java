@@ -10,10 +10,8 @@ public class HIndex {
         for (int i = citations.length - 1; i >= 0; i--) {
 
             if(citations[i] < length - i){
-                System.out.println("Inside if - value is " + citations[i] + " and length is " + (length - i ));
                 return length - i - 1;
             }else if(citations[i] < length - i){
-                System.out.println("Else if - value is " + citations[i] + " and length is " + (length - i ));
                 return length - i;
             }
         }
