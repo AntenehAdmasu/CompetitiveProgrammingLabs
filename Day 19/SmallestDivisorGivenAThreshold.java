@@ -11,7 +11,6 @@ public class SmallestDivisorGivenAThreshold {
         for (int i = 0; i < nums.length ; i++) {
             max = (nums[i] > max) ? nums[i] : max;
         }
-        System.out.println("max is " + max);
         return smallestDivisor(nums,threshold, 1,max,0);
     }
 
