@@ -7,46 +7,26 @@ public class FindDuplicateNumber {
 
         System.out.println("Duplicate is " + findDuplicate(nums));
     }
+    public static int findDuplicate(int left, int right, int[] nums) {
+        if (right >= left) {
+            int middle = (left == right) ? left : (left + right - 1) / 2;
 
-    public static int findDuplicate(int[] nums) {
-//         int length = nums.length;
-//         int slower = 0;
-//         int faster = 1;
-//         int factor = length / 2;
-//         int x = -1;
-
-//         while (true) {
-//             System.out.println();
-//             slower = slower % length;
-//             faster = faster % length;
-//             if (nums[slower] == nums[faster]) {
-//                 if (slower != faster) {
-//                     return nums[slower];
-//                 }
-//                 x = (x == -1) ? slower : x;
-//                 if (slower == x) {
-//                     factor += 1;
-
-//                     slower = 0;
-//                     faster = 1;
-//                 }
-//             }
-//             slower += factor/2;
-//             faster += factor;
-//         }
-
-        //This solution uses O(n) extra space optimization underway to use O(1) extra space
-        int[] newarray = nums;
-
-        for (int i = 0; i < nums.length; i++)
-        {
-            if (newarray[ Math.abs(newarray[i])] >= 0) {
-                newarray[ Math.abs(newarray[i])] = -1 * newarray[Math.abs(newarray[i])];
-            }else{
-                return Math.abs(newarray[i]);
+            if (getBelowCount(nums, middle) <= middle) {
+                return findDuplicate(middle+1, right, nums);
             }
+            return findDuplicate(left, middle-1 , nums);
         }
-        return -1;
+
+        return left;
 
     }
-}
+
+
+    public static int getBelowCount(int[] nums, int n) {
+        System.out.print("FOR " + n);
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] <= n) count++;
+        }
+        return count;
+    }}
