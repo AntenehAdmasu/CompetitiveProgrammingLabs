@@ -14,8 +14,7 @@ public class SmallestDivisorGivenAThreshold {
         return smallestDivisor(nums,threshold, 1,max,0);
     }
 
-    public static int smallestDivisor(int[] nums, int threshold,int left, int right,int currentDivisor) {
-        System.out.println();
+     public static int smallestDivisor(int[] nums, int threshold,int left, int right,int currentDivisor) {
         int currentdivisor = currentDivisor;
         if(right >= left){
             int middle = (left + right - 1) / 2 ;
@@ -32,7 +31,7 @@ public class SmallestDivisorGivenAThreshold {
 
         return currentDivisor;
     }
-
+    
     public static int getSumOfArray(int[] nums, int divisor){
         int total = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -41,4 +40,6 @@ public class SmallestDivisorGivenAThreshold {
         }
         return total;
     }
+
+    
 }
