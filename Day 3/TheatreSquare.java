@@ -1,3 +1,5 @@
+// Question : http://codeforces.com/problemset/problem/1/A
+
 import java.util.*;
 public class Exercise {
 
