@@ -5,15 +5,11 @@ public class Radix {
 
         public static void main(String arg[]){
 
+            // Sample input
             int a[] = {209,3,48,91,66,101,30,795};
-            //print unsorted array using Arrays.toString()
-            System.out.print("Unsorted array: ");
-            System.out.println(Arrays.toString(a));
 
             Radix rs= new Radix();
             int[] b = rs.radixSort(a);
-
-            //print sorted array
 
         }
 
