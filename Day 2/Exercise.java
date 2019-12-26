@@ -37,25 +37,3 @@ class ListNode {
 
 
 
-
-
-
-
-//    public static int[] twoSum(int[] nums, int target) {
-//        for(int i =0; i < nums.length; i++){
-//            if(nums[i] <= target){
-//                for (int j = 0; j < nums.length; j++) {
-//
-//
-////                    if (nums[j] <= target) {
-//                        if (nums[i] + nums[j] == target){
-//                            System.out.println(i);
-//                            System.out.println(j);
-//                            return new int[]{i, j};
-//                        }
-////                    }
-//                }
-//            }
-//        }
-//        return new int[]{1, 2};
-//    }
