@@ -1,17 +1,11 @@
+// Question : https://leetcode.com/problems/pancake-sorting/
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PancakeSort {
-    public static void main(String[] args) {
-        int[] B = new int[]{2,10,5,6,3,8,9};
-        int[] D = new int[]{2,4,20,3,5,6,8,9,15};
-
-        List<Integer> ans = pancakeSort(D);
-        for (int i = 0; i < ans.size(); i++) {
-            System.out.println("*"+ans.get(i));
-        }
-    }
+    
     public static List<Integer> pancakeSort(int[] A) {
 
         List<Integer> flips = new ArrayList<>();
