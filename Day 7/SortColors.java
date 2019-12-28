@@ -1,10 +1,9 @@
+// Question : https://leetcode.com/problems/sort-colors/
+
+
 import java.util.HashMap;
 
 public class SortColors{
-
-    public static void main(String[] args) {
-
-    }
 
     public void sortColors(int[] nums) {
         quickSort(0, nums.length -1, nums );
@@ -18,37 +17,37 @@ public class SortColors{
             }
         }
 
-        public static int getIndex(int intialIndex, int finalIndex, int[] array) {
-            int pivot = array[intialIndex];
-            int pivotIndex = intialIndex;
 
-            while (intialIndex < finalIndex) {
+    public static int getIndex(int intialIndex, int finalIndex, int[] array) {
+        int pivot = array[intialIndex];
+        int pivotIndex = intialIndex;
 
-                try {
-                    while (array[intialIndex] <= pivot) intialIndex++;
-                    while (array[finalIndex] >= pivot) finalIndex--;
+        while (intialIndex < finalIndex) {
 
-                } catch (Exception e) {
-                }
+            try {
+                while (array[intialIndex] <= pivot) intialIndex++;
+                while (array[finalIndex] >= pivot) finalIndex--;
 
-                if (intialIndex < finalIndex) {
-                    int temp = array[intialIndex];
-
-                    array[intialIndex] = array[finalIndex];
-                    array[finalIndex] = temp;
-                }
+            } catch (Exception e) {
             }
 
-            if (finalIndex > pivotIndex) {
-                int temp = array[pivotIndex];
+            if (intialIndex < finalIndex) {
+                int temp = array[intialIndex];
 
-                array[pivotIndex] = array[finalIndex];
+                array[intialIndex] = array[finalIndex];
                 array[finalIndex] = temp;
-
-                return finalIndex;
             }
-            return pivotIndex;
+        }
 
+        if (finalIndex > pivotIndex) {
+            int temp = array[pivotIndex];
 
+            array[pivotIndex] = array[finalIndex];
+            array[finalIndex] = temp;
 
-}}
+            return finalIndex;
+        }
+        return pivotIndex;
+
+    }
+}

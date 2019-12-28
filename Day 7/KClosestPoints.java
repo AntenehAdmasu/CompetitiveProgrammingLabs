@@ -1,3 +1,5 @@
+// Question : https://leetcode.com/problems/k-closest-points-to-origin/
+
 import java.util.ArrayList;
 
 public class KClosestPoints {
@@ -25,11 +27,7 @@ public class KClosestPoints {
         for (int j = 0; j < K; j++) {
             answer[j] = new int[]{distanceCellMap[j][1],distanceCellMap[j][2]};
         }
-
-
         return null;
-
-
     }
 
 
@@ -41,6 +39,7 @@ public class KClosestPoints {
             quickSort(pivIndex + 1, finalIndex, array);
         }
     }
+
 
     public int getIndex(int intialIndex, int finalIndex, int[][] array) {
         int pivot = array[intialIndex][0];
@@ -73,7 +72,5 @@ public class KClosestPoints {
         }
         return pivotIndex;
     }
-
-
 
 }

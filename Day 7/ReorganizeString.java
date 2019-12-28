@@ -1,15 +1,11 @@
+// Question : https://leetcode.com/problems/reorganize-string/
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
 public class ReorganizeString {
-
-    public static void main(String[] args) {
-        String ss = "aaaaaaaaaaabcdeccvvvvooqqqqqqqqqqqqqqqqmnopwxyzz";
-        String s = "bbbaaaa";
-        System.out.println("Answer: " + new ReorganizeString().reorganizeString(ss));
-//        System.out.println((int) 'A');
-    }
 
     public String reorganizeString(String S) {
         int length = S.length();
