@@ -1,14 +1,9 @@
+// Question : https://leetcode.com/problems/matrix-cells-in-distance-order/
+
 import java.util.ArrayList;
 
 public class MatrixCells {
-//    public static void main(String[] args) {
-//        int[][] ans = allCellsDistOrder(2,3,1,2);
-//        for (int i = 0; i < 6; i++) {
-//            System.out.print(ans[i][0]);
-//            System.out.println(ans[i][1]);
-//        }
-//
-//    }
+
     public static int[][] allCellsDistOrder(int R, int C, int r0, int c0) {
         ArrayList<int[]> distanceCellMap = new ArrayList<>();
         ArrayList<Integer> cellDistances = new ArrayList<>();
@@ -23,27 +18,17 @@ public class MatrixCells {
         }
         ArrayList<Integer> sortedDistance = sort(cellDistances);
 
-
         for (int i = 0; i < sortedDistance.size() ; i++) {
 
             for (int j = 0; j < distanceCellMap.size(); j++) {
                 if(sortedDistance.get(i) == distanceCellMap.get(j)[0]){
-                    System.out.println("distance found " + sortedDistance.get(i) + " at " + distanceCellMap.get(j)[1] + distanceCellMap.get(j)[2]);
                     answer[i] = new int[]{distanceCellMap.get(j)[1],distanceCellMap.get(j)[2]};
-                    System.out.println("**********");
-
-                        System.out.print(answer[i][0]);
-                        System.out.println(answer[i][1]);
-                    System.out.println("i is " + i);
-
                     distanceCellMap.remove(j);
                     break;
 
                 }
             }
         }
-
-        System.out.println("the size of dismap is " + distanceCellMap.size());
         return answer;
 
 
