@@ -1,3 +1,6 @@
+
+// Question: https://leetcode.com/problems/relative-sort-array
+
 class RelativeSortArray {
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
         int[] arr3 = new int[arr1.length];
@@ -21,8 +24,6 @@ class RelativeSortArray {
             }
         }
         quickSort(unsorted,arr3.length -1,arr3);
-
-
         return arr3;
     }
     
@@ -51,18 +52,16 @@ class RelativeSortArray {
 
             if (intialIndex < finalIndex) {
                 int temp = array[intialIndex];
-                int temp2 = array[finalIndex];
 
-                array[intialIndex] = temp2;
+                array[intialIndex] = array[finalIndex];
                 array[finalIndex] = temp;
             }
         }
 
         if (finalIndex > pivotIndex) {
             int temp = array[pivotIndex];
-            int temp2 = array[finalIndex];
 
-            array[pivotIndex] = temp2;
+            array[pivotIndex] = array[finalIndex];
             array[finalIndex] = temp;
 
             return finalIndex;
