@@ -29,7 +29,6 @@ public class Stack {
             String val = myStack.get(this.pointer);
             return val;
         }else{
-            System.out.println("In else of view");
             return "";
         }
     }
