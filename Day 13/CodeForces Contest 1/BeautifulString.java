@@ -1,3 +1,5 @@
+// Question : https://codeforces.com/contest/1265/problem/A
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,7 +51,7 @@ public class BeautifulString {
 
                             if ( (chars.charAt(j) != before) & (chars.charAt(j) != sample.charAt(i+1))){
 
-                                sample.setCharAt(i, chars.charAt(j));// result += chars.charAt(j);
+                                sample.setCharAt(i, chars.charAt(j));
                                 break;
                             }
                         }
@@ -63,7 +65,7 @@ public class BeautifulString {
                     if (i == 0){
                         before = '1';
                     }else{
-                        before = sample.charAt(i-1);//sample.charAt(i - 1) == '?') ? result.charAt(i-1) : sample.charAt(i - 1);
+                        before = sample.charAt(i-1);
                     }
                     for (int j = 0; j < 3; j++) {
                         if (chars.charAt(j) != before){
