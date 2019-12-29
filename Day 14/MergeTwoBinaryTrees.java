@@ -1,8 +1,6 @@
+// Question : https://leetcode.com/problems/merge-two-binary-trees/
+
 public class MergeTwoBinaryTrees {
-
-    public static void main(String[] args) {
-
-    }
 
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         TreeNode mergedRoot = null;
@@ -16,10 +14,6 @@ public class MergeTwoBinaryTrees {
         }else{
             mergedRoot = new TreeNode(t1.val + t2.val);
         }
-
-
-
-
 
         TreeNode t1left, t1right, t2left, t2right;
 

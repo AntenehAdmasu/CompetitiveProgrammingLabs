@@ -1,8 +1,7 @@
+// Question https://leetcode.com/problems/same-tree/
+
 public class SameTree {
 
-    public static void main(String[] args) {
-        
-    }
        
     public boolean isSameTree(TreeNode p, TreeNode q) {
         TreeNode Pleft = null;

@@ -1,17 +1,8 @@
+// Question : https://leetcode.com/problems/insert-into-a-binary-search-tree/
+
 import java.time.temporal.Temporal;
 
 public class InsertIntoBST {
-
-    public static void main(String[] args) {
-        TreeNode a  = new TreeNode(4);
-        a.left = new TreeNode(2);
-        a.right = new TreeNode(7);
-
-        a.left.left = new TreeNode(1);
-        a.left.right = new TreeNode(3);
-
-        new InsertIntoBST().insertIntoBST(a, 5);
-    }
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
 
