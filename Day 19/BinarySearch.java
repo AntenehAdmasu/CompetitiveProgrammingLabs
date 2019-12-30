@@ -1,9 +1,9 @@
+// Question : https://leetcode.com/problems/binary-search/
+
 public class BinarySearch {
     public static void main(String[] args) {
         int[] A = new int[]{-1,0,3,5,9,12};
         System.out.println(new BinarySearch().binarySearch(A,0,A.length -1,2));
-//        System.out.println(Math.log(100));
-
     }
 
     public int search(int[] nums,int middle,int target,int numofCalls){
@@ -23,12 +23,9 @@ public class BinarySearch {
     }
 
     public int binarySearch(int[] nums, int left, int right, int target){
-        System.out.println("left right " + left + " " + right);
         if(right>= left){
             int middle = (left + right - 1) / 2 ;
             if(left == right) middle = left;
-
-            System.out.println("middle is " + middle);
             if(nums[middle] == target) return middle;
 
             if(nums[middle] > target) return binarySearch(nums, left, middle-1, target);

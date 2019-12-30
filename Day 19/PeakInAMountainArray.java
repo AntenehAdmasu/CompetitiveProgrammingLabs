@@ -1,3 +1,5 @@
+// Question : https://leetcode.com/problems/peak-index-in-a-mountain-array/
+
 public class PeakInAMountainArray {
     public int peakIndexInMountainArray(int[] A) {
         for (int i = 1; i < A.length-1 ; i++) {

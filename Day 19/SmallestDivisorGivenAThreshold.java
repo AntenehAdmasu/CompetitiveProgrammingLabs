@@ -1,3 +1,4 @@
+// Question : https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
 
 public class SmallestDivisorGivenAThreshold {
 
@@ -25,7 +26,6 @@ public class SmallestDivisorGivenAThreshold {
                 return smallestDivisor(nums,threshold,left,middle-1,currentDivisor);
             }else{
                 return smallestDivisor(nums,threshold,middle + 1,right,currentDivisor);
-
             }
         }
 

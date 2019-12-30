@@ -1,20 +1,13 @@
+// Question : https://leetcode.com/problems/find-positive-integer-solution-for-a-given-equation/
+
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class PositiveIntegerSolution {
     public static void main(String[] args) {
         CustomFunction c = new CustomFunction();
         List<List<Integer>> x = new PositiveIntegerSolution().findSolution(c,100);
 
-        System.out.println("#######################################");
-        System.out.println("#######################################\n");
-
-        for (List<Integer> l:x) {
-            System.out.print(l.get(0)+"\t");
-            System.out.println(l.get(1)+"\t");
-        }
     }
 
 
@@ -31,14 +24,12 @@ public class PositiveIntegerSolution {
 
 
     public List<Integer> checkFunction(CustomFunction customfunction,int left,int right,int x,int z){
-        System.out.println();
         List<Integer> result = new ArrayList<>();
         result.add(-1);result.add(-1);
 
         if(right >= left){
 
             int middle = (left + right - 1) / 2 ;
-
             if(left == right) middle = left;
             int funcVal = customfunction.f(x,middle);
 
@@ -49,18 +40,17 @@ public class PositiveIntegerSolution {
             }
 
             if(funcVal > z) return checkFunction(customfunction, left, middle-1,x, z);
-
             return checkFunction(customfunction, middle + 1, right,x,z);
+
         }
 
         return result;
-
     }
 
 }
 
 class CustomFunction{
-    int f(int x, int y){
-        return (int)(x*y );
+    int f(int x, int y){         // Sample function for multiplication
+        return (int)(x*y );  
     }
 }
