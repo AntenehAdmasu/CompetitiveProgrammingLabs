@@ -1,3 +1,5 @@
+// Question : https://leetcode.com/problems/reverse-nodes-in-k-group/
+
 import java.util.List;
 
 public class ReverseNodesInKGroup {
@@ -47,6 +49,7 @@ public class ReverseNodesInKGroup {
     }
 
 
+    // Checks if the remaining nodes in the linked lists are atleast k
     public boolean isEnough(ListNode item, int k){
         for (int i = 0; i < k; i++) {
             if(item == null){
