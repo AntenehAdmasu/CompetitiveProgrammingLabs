@@ -1,4 +1,4 @@
-// Question : 
+// Question : https://leetcode.com/problems/next-greater-node-in-linked-list/
 
 import java.util.ArrayList;
 
