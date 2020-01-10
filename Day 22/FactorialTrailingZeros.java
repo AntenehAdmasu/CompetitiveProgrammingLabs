@@ -7,7 +7,7 @@ public class FactorialTrailingZeros {
 
     public int trailingZeroes(int n) {
 
-        int divisor = 5;
+        long divisor = 5;
         int trailingZeros = 0;
         while(n >= divisor){
             trailingZeros += n / divisor;
