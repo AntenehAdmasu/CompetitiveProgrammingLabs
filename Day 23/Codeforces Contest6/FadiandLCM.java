@@ -9,30 +9,26 @@ public class FadiandLCM {
 
         Scanner s = new Scanner(System.in);
         long a = s.nextLong();
-        maxLCMPair((long)a);
+        maxLCM(a);
     }
 
 
-    public static void maxLCMPair(long n){
-        // Get the factors from its sqroot backwards
-        long sqrRoot = (long) Math.sqrt(n);
-        ArrayList<Long> factors = new ArrayList<>();
-        for (int i = 1; i <= sqrRoot; i++) {
-            if(n % i == 0) factors.add((long)i);
-        }
+    public static void maxLCM(long number){
+        int sqrRoot = (int) Math.sqrt(number);
+        for (long i = sqrRoot; i >= 1 ; i--) {
 
-        //Get each factor's pair and check their GCD
-        for (int i = factors.size()-1; i >= 0; i--) {
-            long factor = factors.get(i);
-            long pair = n / factor;
-            if(getGCD(pair, factor) == 1){
-                System.out.println(factor + " " + pair);
-                return;
+            if(number % i == 0){
+                long pair = number / i;
+                if(getGCD(pair, i) == 1){
+                    System.out.println(i + " " + pair);
+                    return;
+                }
             }
         }
     }
 
-    public static long getGCD(long a, long b){
-        return (b == 0) ? a :getGCD(b,a % b);
+    private static long getGCD(long pair, long number){
+        return (number == 0) ? pair: getGCD(number, pair % number);
     }
+
 }
