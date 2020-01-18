@@ -5,11 +5,6 @@ class CarFleet {
         int[] position = new int[]{10,8,0,5,3};
         int[] speed = new int[]{2,4,1,1,3};
 
-
-        int[] position2 = new int[]{0,4,2};
-        int[] speed2 = new int[]{2,1,3};
-
-
         System.out.println("Fleet is " + new CarFleet().carFleet(12,position,speed));
     }
      public int carFleet(int target, int[] position, int[] speed){

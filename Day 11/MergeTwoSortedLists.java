@@ -14,7 +14,6 @@ public class MergeTwoSortedLists {
             l2 = l2.next;
         }
 
-
         while((l1 != null) && (l2 != null)){
             if(l1.val < l2.val ){
                 head.next = l1;
@@ -33,8 +32,6 @@ public class MergeTwoSortedLists {
         return pointer.next;
     }
 }
-
-
 
 class ListNode2 {
     int val;
