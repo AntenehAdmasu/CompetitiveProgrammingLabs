@@ -1,9 +1,10 @@
+// Question : http://codeforces.com/contest/1272/problem/B
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class SnowWalkingRobot {
-//    HashMap<Character, Character> = new HashMap();
 
     public static void main(String[] args) {
         ArrayList<String> userinputs = new ArrayList<>();
@@ -50,10 +51,8 @@ public class SnowWalkingRobot {
         if(minHorizontal == 0 && minVertical != 0) minVertical = 1;
         if(minHorizontal != 0 && minVertical == 0) minHorizontal = 1;
 
-
         int total = (2 * minHorizontal ) + (2 * minVertical);
 
-        String sequence = "";
         for (int i = 0; i < minHorizontal; i++) {
             output.setCharAt(counter, 'R');
             counter++;
