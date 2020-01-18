@@ -1,3 +1,5 @@
+// Question : http://codeforces.com/contest/1272/problem/C
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,6 +19,8 @@ public class BrokenKeyboard {
         getSubstringsNumber(wordlen,sublen,word,subs);
 
     }
+
+
     public static void getSubstringsNumber(int wordlen, int charslen, String word, String[] subs){
 
         ArrayList<Long> others = new ArrayList<>();
@@ -56,7 +60,6 @@ public class BrokenKeyboard {
         long lastMult = (last * (last+1)) /2;
 
         total += lastMult;
-
         System.out.println((total));
     }
 }

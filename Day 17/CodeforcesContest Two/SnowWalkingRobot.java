@@ -71,7 +71,6 @@ public class SnowWalkingRobot {
             counter++;
         }
 
-        System.out.println(total);
         System.out.println(output.substring(0,counter));
 
     }
