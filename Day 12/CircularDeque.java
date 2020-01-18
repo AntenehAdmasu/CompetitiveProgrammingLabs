@@ -1,33 +1,10 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-
+// Question : https://leetcode.com/problems/design-circular-deque/
 public class CircularDeque {
     public int queueSize;
     public int addedValues;
     public int first;
     public int last;
     int[] queue;
-
-
-    public static void main(String[] args) {
-
-        CircularDeque circularDeque = new CircularDeque(8);
-
-
-        System.out.println(circularDeque.insertFront(5));
-        System.out.println(circularDeque.getFront());
-        System.out.println(circularDeque.isEmpty());
-        System.out.println(circularDeque.deleteFront());
-        System.out.println(circularDeque.insertLast(3));
-        System.out.println(circularDeque.getRear());
-        System.out.println(circularDeque.insertLast(7));
-        System.out.println(circularDeque.insertFront(7));
-        System.out.println(circularDeque.deleteLast());
-        System.out.println(circularDeque.insertLast(4));
-        System.out.println(circularDeque.isEmpty());
-
-
-
-    }
 
     /** Initialize your data structure here. Set the size of the deque to be k. */
     public CircularDeque(int k) {
