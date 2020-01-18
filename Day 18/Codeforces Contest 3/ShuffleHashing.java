@@ -1,3 +1,5 @@
+// Question : http://codeforces.com/contest/1278/problem/A
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -16,13 +18,13 @@ public class ShuffleHashing {
 
             userinputs.add(password);
             userinputs.add(hash);
-
         }
 
         for (int k = 0; k < userinputs.size(); k+=2) {
             checkPassword(userinputs.get(k), userinputs.get(k+1));
         }
     }
+
 
     public static void checkPassword(String password, String hash){
         int plen = password.length();
@@ -39,4 +41,5 @@ public class ShuffleHashing {
         }
         System.out.println("NO");
     }
+    
 }
