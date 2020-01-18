@@ -1,8 +1,9 @@
+// Question : https://leetcode.com/problems/n-th-tribonacci-number/
+
 public class NthTribonacciNumber {
 
     public static void main(String[] args) {
         int ans = new NthTribonacciNumber().tribonacci(25);
-
     }
 
     public int tribonacci(int n) {
@@ -17,11 +18,10 @@ public class NthTribonacciNumber {
         mylist[1] = 1;
         mylist[2] = 1;
 
-        System.out.println(mylist.length);
-
         for (int i = 3; i < mylist.length; i++) {
             mylist[i] = mylist[i-1] + mylist[i-2] + mylist[i-3];
         }
+
         return mylist[n];
 
     }

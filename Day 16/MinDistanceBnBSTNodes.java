@@ -1,21 +1,10 @@
+// Question : https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class MinDistanceBnBSTNodes {
-    public static void main(String[] args) {
-        TreeNode a  = new TreeNode(10);
-        a.left = new TreeNode(5);
-        a.right = new TreeNode(20);
-        a.right.left = new TreeNode(16);
-        a.right.right = new TreeNode(13);
-        a.left.left = new TreeNode(0);
-        a.left.right = new TreeNode(29);
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        new MinDistanceBnBSTNodes().minDiffInBST(a);
-
-    }
-
+    
     public int minDiffInBST(TreeNode root) {
         ArrayList<Integer> allNodes = minDiffInBST2(root);
         Collections.sort(allNodes);
