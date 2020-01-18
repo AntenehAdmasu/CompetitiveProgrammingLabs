@@ -16,6 +16,7 @@ public class NewyearGarland {
             userinputs.add(nums);
         }
 
+        // Sending inputs to the function
         for (int i = 0; i < userinputs.size() ; i++) {
             String[] inputs = userinputs.get(i).split(" ");
             isItPossible(Long.parseLong(inputs[0]), Long.parseLong(inputs[1]), Long.parseLong(inputs[2]));

@@ -25,6 +25,7 @@ public class JustEatIt {
             System.out.println(isHappy(nums,inputSizesList[i] ));
         }
     }
+    
 
     public static String isHappy(String[] tastines, int length){
 

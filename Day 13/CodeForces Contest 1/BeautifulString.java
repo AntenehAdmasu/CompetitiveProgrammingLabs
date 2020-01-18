@@ -23,6 +23,7 @@ public class BeautifulString {
 
     }
 
+
     public static String beautifulString(String input){
 
         StringBuilder sample = new StringBuilder(input);
