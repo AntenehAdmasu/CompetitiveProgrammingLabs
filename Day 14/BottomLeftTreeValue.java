@@ -28,14 +28,13 @@ public class BottomLeftTreeValue {
         int[] leftResult = null;
         int[] rightResult = null;
 
-        if(root.left != null) leftResult = getBottomLeftValue(root.left, levelCounter);
-        
+        if(root.left != null) leftResult = getBottomLeftValue(root.left, levelCounter);        
         if(root.right != null) rightResult = getBottomLeftValue(root.right, levelCounter);
 
-        if(leftResult == null) return rightResult;
-        
+        if(leftResult == null) return rightResult        
         if(rightResult == null) return leftResult;
         
+        // Check the one with the higher level or the left one for similar levels
         if(leftResult[0] < rightResult[0]){
             return rightResult;
         }else{
