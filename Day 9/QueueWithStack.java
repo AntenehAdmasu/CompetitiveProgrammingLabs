@@ -17,12 +17,10 @@ public class QueueWithStack {
         if (this.empty()){
             out++;
         }
-        System.out.println("out in push " + out);
 
     }
 
         public int pop(){
-        System.out.println("out is " + out);
         out++;
         size--;
         return list.get(out--);
@@ -30,7 +28,6 @@ public class QueueWithStack {
     }
 
         public int peek(){
-        System.out.println("In peek , out is " + out);
         return list.get(out);
     }
 
