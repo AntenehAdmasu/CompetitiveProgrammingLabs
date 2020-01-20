@@ -1,3 +1,5 @@
+// Question : https://leetcode.com/problems/employee-importance/
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -9,18 +11,12 @@ public class EmployeeImportance {
         // Put all importance in a hashmap
         HashMap<Integer,Employee> allemployees = new HashMap<>();
         for (Employee e: employees){
-            Employee employee = new Employee();
-            employee.id = e.id;
-            employee.subordinates = e.subordinates;
-            employee.importance = e.importance;
-            allemployees.put(e.id,employee);
+            allemployees.put(e.id,e);
         }
 
         return getEmployeeImportance(allemployees,id);
-
-
-
     }
+
 
     public int getEmployeeImportance(HashMap<Integer, Employee> allEmployees, int id){
         Employee self = allEmployees.get(id);
@@ -33,7 +29,6 @@ public class EmployeeImportance {
 
         return myImportance + childrenImportance;
     }
-
 
 
 }
