@@ -1,28 +1,10 @@
+// Question : https://leetcode.com/problems/kth-largest-element-in-a-stream/
+
 public class KthLargest {
 
     static int[] heap;
     int size;
     int heapsize;
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{};
-        KthLargest c = new KthLargest(1,nums);
-
-        for (int x: heap) {
-//            System.out.println("* " + x);
-        }
-
-        System.out.println(c.add(-3));
-
-        System.out.println(c.add(-2));
-
-        System.out.println(c.add(-4));
-
-        System.out.println(c.add(0));
-
-        System.out.println(c.add(4));
-
-    }
 
 
     public KthLargest(int k, int[] nums) {
@@ -70,13 +52,8 @@ public class KthLargest {
         heap[0] = heap[size-1];
         heap[size-1] = temp;
         size--;
-        for (int x: heap) {
-//            System.out.println("SS* " + x);
-        }
         sinkDown(0);
-        for (int x: heap) {
-//            System.out.println("DD* " + x);
-        }
+       
     }
 
     public void sinkDown(int pos){
