@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class ConstructBSTFromPreorder {
 
-
     public TreeNode bstFromPreorder(int[] preorder) {
         int len  = preorder.length;
         if(len == 0) return null;
