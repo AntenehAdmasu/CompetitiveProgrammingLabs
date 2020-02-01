@@ -1,3 +1,5 @@
+// Question link : https://leetcode.com/problems/get-equal-substrings-within-budget/
+
 public class EqualSubstringsWithinBudget {
 
     public static void main(String[] args) {

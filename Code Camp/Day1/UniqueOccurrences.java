@@ -1,3 +1,5 @@
+// Question link : https://leetcode.com/contest/weekly-contest-156/problems/unique-number-of-occurrences
+
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -9,8 +11,6 @@ public class UniqueOccurrences {
         int[] test3 = new int[]{};
 
         System.out.println(new UniqueOccurrences().uniqueOccurrences(test));
-//        System.out.println(new UniqueOccurrences().uniqueOccurrences(test2));
-//        System.out.println(new UniqueOccurrences().uniqueOccurrences(test3));
     }
     public boolean uniqueOccurrences(int[] arr) {
         HashMap<Integer, Integer> occ = new HashMap<>();

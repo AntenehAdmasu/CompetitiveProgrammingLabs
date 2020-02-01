@@ -109,10 +109,11 @@ public class ShortestAlternatingPath {
 
 }
 
+
 class State {
 
     int node;
-    boolean color; // false for Red and         true for blue
+    boolean color; // false for Red and true for blue
 
     public State(int n, boolean c) {
         node = n;
