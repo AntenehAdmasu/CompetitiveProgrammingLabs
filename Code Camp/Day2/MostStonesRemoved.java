@@ -81,7 +81,6 @@ public class MostStonesRemoved {
 
 
 
-
 class Node {
     int row, column;
 
