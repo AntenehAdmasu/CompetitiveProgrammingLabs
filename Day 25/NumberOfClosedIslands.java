@@ -37,15 +37,15 @@ public class NumberOfClosedIslands {
         }
 
         return islandCount;
-
     }
+
 
     private boolean inIsland(Cell cell, int[][] grid, HashSet<Cell> visited) {
 
         LinkedList<Cell> queue = new LinkedList<>();
         visited.add(cell);
         queue.add(cell);
-        HashSet<Cell> seenInOneTraversal = new HashSet<>();
+        boolean retValue = true;
 
         while (!queue.isEmpty()) {
             Cell current = queue.poll();
@@ -57,18 +57,17 @@ public class NumberOfClosedIslands {
                 if (neighbour.value == 0 && (neighbour.row == 0 || neighbour.row == grid.length - 1 ||
                         neighbour.column == 0 || neighbour.column == grid[0].length - 1)) {
                     // if these conditions are satisfied, there is a zero at the edge of the grid , or a port :)
-                    return false;
+                    retValue = false;
                 } else {
-                    if (neighbour.value == 0 && !seenInOneTraversal.contains(neighbour)) {
+                    if (neighbour.value == 0 && !visited.contains(neighbour)) {
                         queue.add(neighbour);
                         visited.add(neighbour);
-                        seenInOneTraversal.add(neighbour);
                     }
                 }
             }
         }
 
-        return true;
+        return retValue;
     }
 
     private ArrayList<Cell> getNeighbours(Cell cell, int[][] grid) {
