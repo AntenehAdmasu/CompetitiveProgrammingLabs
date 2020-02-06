@@ -27,24 +27,7 @@ public class MostStonesRemoved {
         int pathCount = 0;
 
         //  Constructing neighbourlist of grids with the same row and column
-        for (int[] stone: stones) {
-            if (rowNeighbours.containsKey(stone[0])) {
-                rowNeighbours.get(stone[0]).add(new Node(stone[0],stone[1]));
-            } else {
-                ArrayList<Node> neigh = new ArrayList<>();
-                neigh.add(new Node(stone[0],stone[1]));
-                rowNeighbours.put(stone[0], neigh);
-            }
-
-            if (columnNeighbours.containsKey(stone[1])) {
-                columnNeighbours.get(stone[1]).add(new Node(stone[0],stone[1]));
-            } else {
-                ArrayList<Node> neigh = new ArrayList<>();
-                neigh.add(new Node(stone[0],stone[1]));
-                columnNeighbours.put(stone[1], neigh);
-            }
-
-        }
+        constructAdjacencyList(stones, rowNeighbours, columnNeighbours);
 
         for (int i = 0; i < stones.length ; i++) {
             Node node = new Node(stones[i][0], stones[i][1]);
@@ -76,6 +59,27 @@ public class MostStonesRemoved {
         }
 
         return pathCount;
+    }
+
+    public void constructAdjacencyList(int[] stones, HashMap<Integer, ArrayList<Node>> rowNeighbours, HashMap<Integer, ArrayList<Node>> columnNeighbours){
+        
+        for (int[] stone: stones) { 
+            if (rowNeighbours.containsKey(stone[0])) {
+                rowNeighbours.get(stone[0]).add(new Node(stone[0],stone[1]));
+            } else {
+                ArrayList<Node> neigh = new ArrayList<>();
+                neigh.add(new Node(stone[0],stone[1]));
+                rowNeighbours.put(stone[0], neigh);
+            }
+
+            if (columnNeighbours.containsKey(stone[1])) {
+                columnNeighbours.get(stone[1]).add(new Node(stone[0],stone[1]));
+            } else {
+                ArrayList<Node> neigh = new ArrayList<>();
+                neigh.add(new Node(stone[0],stone[1]));
+                columnNeighbours.put(stone[1], neigh);
+            }
+        }
     }
 }
 
