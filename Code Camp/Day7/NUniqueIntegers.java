@@ -3,11 +3,7 @@
 public class NUniqueIntegers {
 
     public static void main(String[] args) {
-//        new NUniqueIntegers().sumZero(1);
-//        new NUniqueIntegers().sumZero(10);
         new NUniqueIntegers().sumZero(11);
-
-
     }
 
     public int[] sumZero(int n) {
