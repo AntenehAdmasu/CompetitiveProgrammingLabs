@@ -22,9 +22,6 @@ public class MaximumLengthofPairChain {
             maxChain = Math.max(maxChain,pairs[i][0]);
 
         }
-
-        for(int[] pair: pairs){
-        }
         return maxChain;
     }
 
