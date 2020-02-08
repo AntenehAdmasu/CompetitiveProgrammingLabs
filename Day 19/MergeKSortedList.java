@@ -18,7 +18,6 @@ public class MergeKSortedList {
         ListNode head = heap.poll();
         handle.next = head;
 
-
         while (!heap.isEmpty()) {
             ListNode node = heap.poll();
             head.next = node;
@@ -40,6 +39,7 @@ class ListNode {
 
 class ListNodeComparator implements Comparator<ListNode> {
 
+    // Comparing Listnodes nodes based on their values
     @Override
     public int compare(ListNode l1, ListNode l2) {
         if (l1.val == l2.val) return 0;
