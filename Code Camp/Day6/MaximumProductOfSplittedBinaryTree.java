@@ -13,7 +13,6 @@ public class MaximumProductOfSplittedBinaryTree {
         int maxDifference = allSums.get(len - 1);
         int num1 = 0;
         int num2 = 0;
-        // for(int x: allSums) System.out.println(x);
 
         for (int sum : allSums) {
             int difference = Math.abs((allSums.get(len - 1) - sum) - sum);
