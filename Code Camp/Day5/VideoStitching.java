@@ -18,16 +18,17 @@ public class VideoStitching {
         System.out.println("========>>>>> " + min);
 
     }
+   public int videoStitching(int[][] videos, int target) {
 
-    public int getMinVideos(int[][] videos, int target) {
         Arrays.sort(videos, new TwoDArrayComparator());
         int minVideos = Integer.MAX_VALUE;
         int[] memo = new int[videos.length];
 
+
         for (int i = videos.length - 1; i >= 0; i--) {
             int[] video = videos[i];
             if (video[0] <= target && video[1] >= target) {
-                System.out.println("in for " + i);
+                int min = getMin(videos,i,memo);
                 minVideos = Math.min(minVideos,min);
             }
             if (video[1] < target) break;
@@ -58,6 +59,7 @@ public class VideoStitching {
         }
         return min;
     }
+}
 }
 
 class TwoDArrayComparator implements Comparator<int[]> {
