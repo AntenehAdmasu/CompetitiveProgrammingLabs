@@ -36,10 +36,6 @@ public class MaximumProductOfSplittedBinaryTree {
         int left = getSum(root.left, sums);
         int right = getSum(root.right, sums);
 
-        // ArrayList<Integer> right = getSum(root.right);
-        // if(left != null) answer.addAll(left);
-        // if(right != null) answer.addAll(right);
-
         int self = root.val;
         self += left;
         self += right;
