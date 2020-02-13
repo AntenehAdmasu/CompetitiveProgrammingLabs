@@ -101,7 +101,7 @@ class Node {
 
     @Override
     public int hashCode() {
-        String hash = "" + row + column;
+        String hash = "" + row + " " + column;
         return hash.hashCode();
     }
 }
