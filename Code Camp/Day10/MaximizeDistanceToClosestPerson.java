@@ -19,7 +19,7 @@ public class MaximizeDistanceToClosestPerson {
             }
         }
         int len = ones.size();
-        Collections.sort(ones);
+        
         int start = 0; int end = 0;
 
         int maxDistance = ones.get(0) - 0 > seats.length-1 - ones.get(len-1) ? ones.get(0) - 0 : seats.length -1 - ones.get(len-1);
