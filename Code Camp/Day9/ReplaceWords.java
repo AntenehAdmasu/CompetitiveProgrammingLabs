@@ -35,4 +35,64 @@ public class ReplaceWords {
         return ans.toString().substring(0,ans.length()-1);
 
     }
+    public String replaceWordsUsingTries(List<String> dict, String sentence){
+
+        TNode root = new TNode();
+        String[] wordsFromSentence = sentence.split(" ");
+        constructTrie(dict, root);
+        StringBuilder answer = new StringBuilder();
+
+        for (String word: wordsFromSentence) {
+            answer.append(getWordFromTrie(word,root) + " ");
+            System.out.println();
+        }
+
+        return answer.toString().substring(0,answer.length()-1);
+    }
+
+
+    private String getWordFromTrie(String word, TNode root) {
+        TNode current = root;
+        int i = 0;
+        String trieWord = "";
+
+        while (i < word.length()){
+            int letter = (int) word.charAt(i);
+            if(current.isEndOfWord){
+                return trieWord;
+            }
+
+            if(current.children[letter-97] != null){
+                current = current.children[letter-97];
+                trieWord += (char) letter;
+                i++;
+            }else{
+                break;
+            }
+        }
+
+        return word;
+    }
+
+
+    private void constructTrie(List<String> dict, TNode root) {
+
+        for (String word :  dict) {
+            TNode current = root;
+
+            for (int i = 0; i < word.length(); i++) {
+                int letter = (int) word.charAt(i);
+                if (current.children[letter - 97] != null) {
+                    current = current.children[letter - 97];
+                } else {
+                    current.children[letter - 97] = new TNode();
+                    current = current.children[letter - 97];
+                }
+
+                if (i == word.length() - 1) {
+                    current.isEndOfWord = true;
+                }
+            }
+        }
+    }
 }
