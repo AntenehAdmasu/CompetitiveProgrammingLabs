@@ -13,32 +13,31 @@ public class TargetSum {
         return possibilities1 + possibilities2;
     }
 
-    public int traverseDfs(int value, int[] nums, int index, HashMap<State, Integer> lookup, int target) {
-
-
-        State state = new State(index, target - value);
+    public int traverseDfs(int value, int[] nums, int index, HashMap<State,Integer> lookup, int target){
+        
+        State state = new State(index, target-value);
         int answer = 0;
-
-        if (lookup.containsKey(state)) {
+        
+        if(lookup.containsKey(state)){
             return lookup.get(state);
         }
-
-        if (target - value == 0 && index == nums.length - 1) {
-            lookup.put(state, 1);
-            return 1;
-        }
-        if (index == nums.length - 1) {
+        
+        if (index == nums.length-1){
+            if (target - value == 0){
+                lookup.put(state, 1);
+                return 1;
+            }
             return 0;
-        } else {
-            int possi1 = traverseDfs(nums[index + 1], nums, index + 1, lookup, target - value);
-            int possi2 = traverseDfs(nums[index + 1] * -1, nums, index + 1, lookup, target - value);
+        }else{
+            int possi1 = traverseDfs(nums[index+1],nums,index+1,lookup,target-value);
+            int possi2 = traverseDfs(nums[index+1]*-1,nums,index+1,lookup,target-value);
             answer = possi1 + possi2;
         }
-
+        
         lookup.put(state, answer);
-        return answer;
+        return answer;        
     }
-
+   
 }
 
 
