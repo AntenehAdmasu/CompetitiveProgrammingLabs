@@ -1,4 +1,4 @@
-// Question link : https://leetcode.com/problems/is-subsequence/
+  // Question link : https://leetcode.com/problems/is-subsequence/
 
 public class IsSubsequence {
     public boolean isSubsequence(String s, String t) {
@@ -13,6 +13,5 @@ public class IsSubsequence {
 
         return false;
     }
-
 
 }

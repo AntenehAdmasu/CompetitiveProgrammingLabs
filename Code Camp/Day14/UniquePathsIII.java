@@ -71,7 +71,7 @@ public class UniquePathsIII {
             neighbours.add(new int[]{i, j-1});
         }
 
-        // down neighbour
+        // bottom neighbour
         if(j+1 < grid[0].length && (grid[i][j+1] == 0 || grid[i][j+1] == 2)){
             neighbours.add(new int[]{i,j+1});
         }
