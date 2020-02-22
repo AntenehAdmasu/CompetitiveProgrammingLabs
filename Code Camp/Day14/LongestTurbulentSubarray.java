@@ -24,7 +24,6 @@ public class LongestTurbulentSubarray {
                     increasing = !increasing;
 
                 }else if(A[i+1] > A[i]){
-
                     count = 2;
                     maxCount = Math.max(maxCount, count);
                 }
@@ -44,3 +43,4 @@ public class LongestTurbulentSubarray {
 
     }
 }
+..............
