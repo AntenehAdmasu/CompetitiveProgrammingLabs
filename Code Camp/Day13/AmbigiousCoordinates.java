@@ -22,7 +22,6 @@ public class AmbigiousCoordinates {
             for (String lCoord : left) {
                 for (String rCoord : right) {
                     String coordinate = "(" + lCoord + ", " + rCoord + ")";
-                    System.out.println("coordinate is " + coordinate);
                     answer.add(coordinate);
                 }
             }
