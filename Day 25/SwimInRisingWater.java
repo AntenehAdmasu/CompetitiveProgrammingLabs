@@ -25,6 +25,7 @@ public class SwimInRisingWater {
             if(current.equals(end)){
                 break;
             }
+            
             visited.add(current);
             ArrayList<SwimmerState> neighbourGrids = getNeighbours(current, grid);
 

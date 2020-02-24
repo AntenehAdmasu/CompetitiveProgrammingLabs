@@ -43,9 +43,8 @@ public class LongestIncreasingSubmatrix {
             }
             lookup.put(cell, max + 1);
         }
+        
         return lookup.get(cell);
-
-
     }
 
     private ArrayList<Grid> getValidNeighbours(Grid cell, int[][] matrix) {
