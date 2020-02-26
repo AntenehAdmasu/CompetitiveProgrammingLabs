@@ -82,7 +82,9 @@ public class NumberOfClosedIslands {
 }
 
 class Cell {
-    int row, column, value;
+    int row;
+    int column;
+    int value;
 
     public Cell(int r, int c, int val) {
         row = r;
@@ -98,8 +100,7 @@ class Cell {
 
     @Override
     public int hashCode() {
-        String hash = "" + row + column;
-        return hash.hashCode();
+      return Objects.hash(row, column);
     }
 }
 
