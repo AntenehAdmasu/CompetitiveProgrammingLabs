@@ -8,14 +8,14 @@ public class ValidParentheses {
         for(int i = 0; i < S.length(); i++){
             if(S.charAt(i) == '(') openCounter++;
             else{
-                if(openCounter >= closedCounter){
+                if(openCounter > 0){
                     openCounter--;
                 }else{
                     closedCounter++;
                 }
-            }
+            }    
         }
         return openCounter + closedCounter;
-
+        
     }
 }
