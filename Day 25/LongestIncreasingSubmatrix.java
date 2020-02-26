@@ -35,14 +35,12 @@ public class LongestIncreasingSubmatrix {
 
         int max = 0;
         ArrayList<Grid> neighbours = getValidNeighbours(cell, matrix);
-        if (neighbours == null) {
-            lookup.put(cell, 1);
-        } else {
-            for (Grid neigh : neighbours) {
-                max = Math.max(max, DFSTraverse(neigh, lookup, matrix));
-            }
-            lookup.put(cell, max + 1);
+        
+        for (Grid neigh : neighbours) {
+            max = Math.max(max, DFSTraverse(neigh, lookup, matrix));
         }
+        
+        lookup.put(cell, max + 1);
         
         return lookup.get(cell);
     }
