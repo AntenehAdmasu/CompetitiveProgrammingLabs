@@ -7,7 +7,11 @@ public class TargetSum {
     public int findTargetSumWays(int[] nums, int S) {
 
         HashMap<State, Integer> lookup = new HashMap<>();
+        
+        // Possibilities starting from negative versions
         int possibilities1 = traverseDfs(nums[0] * -1, nums, 0, lookup, S);
+        
+        // Possibilities starting from positive initials
         int possibilities2 = traverseDfs(nums[0], nums, 0, lookup, S);
 
         return possibilities1 + possibilities2;
@@ -53,13 +57,16 @@ class State {
 
     @Override
     public boolean equals(Object o){
-        State s = (State) o;
-        return this.index == s.index && this.target == s.target;
+        if(o instanceof  State){
+            State s = (State) o;
+            return this.index == s.index && this.target == s.target;
+        }
+        return false;
     }
 
     @Override
     public int hashCode(){
-        return ("" + index + " " + target).hashCode();
+        return Objects.hash(index, target);
     }
 
 }
