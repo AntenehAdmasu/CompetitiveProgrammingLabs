@@ -9,6 +9,7 @@ public class PlayWithChips {
     public int minCostToMoveChips(int[] chips) {
         int oddCount = 0;
         int evenCount = 0;
+        
         for (int x: chips ) {
             if(x % 2 == 0){
                 evenCount++;
