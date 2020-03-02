@@ -8,21 +8,29 @@ public class BinaryTreeFromPostOrder {
     
     public List<Integer> postorderTraversal(TreeNode root) {
 
-        if(root == null) return new ArrayList();
+        List<Integer> answer = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if(root == null){
+            return answer;
+        }
+        stack.add(root);
+        
+        while(!stack.isEmpty()){
+            TreeNode current = stack.pop();
+            answer.add(current.val);
+            
+            if(current.left != null){
+                stack.push(current.left);
+            }
+            if(current.right != null){
+                stack.push(current.right);
+            }
+            
+        }
+        
+        Collections.reverse(answer);
+        return answer;
 
-        List<Integer> leftNodes = null;
-        List<Integer> rightNodes = null;
-        List<Integer> output = new ArrayList<>();
-
-        leftNodes = postorderTraversal(root.left);
-        rightNodes = postorderTraversal(root.right);
-
-        if(leftNodes.size() != 0) output.addAll(leftNodes);
-        if(rightNodes.size() != 0) output.addAll(rightNodes);
-
-        output.add(root.val);
-
-        return output;
     }
 
 }
