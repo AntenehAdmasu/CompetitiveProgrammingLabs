@@ -3,51 +3,43 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class MinStack {
 
-    public static void main(String[] args) {
-        MinStack m = new MinStack();
-        m.push(5);
+    ArrayList<ValueMinimumPair> stack;
+
+    public MinStack() {
+        stack = new ArrayList<>();
     }
 
-        private ArrayList<Integer> stack;
-        int min = 0;
+    public void push(int x) {
+        int minimum = Math.min(x, getMin());
+        ValueMinimumPair item = new ValueMinimumPair(x, minimum); 
+        stack.add(item);
+    }
 
-        public MinStack() {
-            stack = new ArrayList<>();
+    public void pop() {
+        if (stack.size() > 0) {
+            stack.remove(stack.size() - 1);
         }
+    }
 
-        public void push(int x) {
-            stack.add(x);
-            min = Collections.min(stack);
-        }
+    public int top() {
+        return stack.size() > 0 ? stack.get(stack.size() - 1).value : -1; 
+    }
 
-        public void pop() {
-            if (getSize() > 0) {
-                int item = stack.remove(getSize() - 1);
-                if (item == min && !isEmpty()) {
-                    min = Collections.min(stack);
-                }
-            }
-        }
+    public int getMin() {
+        return stack.size() > 0 ? stack.get(stack.size()-1).min : Integer.MAX_VALUE;
+    }
 
-        public int top() {
-            if (getSize() > 0) {
-                return stack.get(getSize() - 1);
-            }
-            return 0;
-        }
+}
 
-        public int getMin() {
-            return min;
-        }
 
-        public boolean isEmpty(){
-            return getSize() == 0;
-        }
-
-        public int getSize() {
-            return stack.size();
-        }
-
+class ValueMinimumPair{
+    int value;
+    int min;
+    public ValueMinimumPair(int val, int minimum){
+        this.value = val;
+        this.min = minimum;
+    }
 }
