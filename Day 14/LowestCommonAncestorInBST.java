@@ -1,26 +1,26 @@
 // Question : https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 
 public class LowestCommonAncestorInBST {
-
+    
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-
-        if(root == null) return null;
-        TreeNode leftNode = root.left;
-        TreeNode rightNode = root.right;
-
-        if(root.val == p.val || root.val == q.val) return root;
-        TreeNode leftResult = lowestCommonAncestor(leftNode, p,q);
-        TreeNode rightResult = lowestCommonAncestor(rightNode, p,q);
-
-        if (leftResult == null & rightResult == null){
+        if(root == null){
             return null;
-        }else if(leftResult != null & rightResult == null){
-            return leftResult;
-        }else if(leftResult == null & rightNode != null){
-            return rightResult;
-        }else{
+        }
+        
+        int larger = p.val > q.val ? p.val : q.val;
+        int smaller = p.val < q.val ? p.val : q.val;
+        
+        if(p.val == root.val || q.val == root.val){
             return root;
         }
+        if(smaller < root.val && larger > root.val){
+            return root;
+        }else if(smaller < root.val && larger < root.val){
+            return lowestCommonAncestor(root.left, p, q);
+        }else{
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        
 
     }
 
