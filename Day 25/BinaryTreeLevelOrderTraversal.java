@@ -6,9 +6,11 @@ import java.util.List;
 
 public class BinaryTreeLevelOrderTraversal {
 
+
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> answer = new ArrayList<>();
         LinkedList<NodeLevelPair> queue = new LinkedList<>();
+
         if(root == null){
             return answer;
         }
@@ -18,7 +20,11 @@ public class BinaryTreeLevelOrderTraversal {
 
         while(!queue.isEmpty()){
             NodeLevelPair current = queue.pop();
-            answer.get(current.level).add(current.node.val);
+            List<Integer> valsAtLevel = answer.size() > current.level ? answer.get(current.level) : new ArrayList<>();
+            valsAtLevel.add(current.node.val);
+            if(answer.size() <= current.level){
+                answer.add(valsAtLevel);
+            }
 
             if(current.node.left != null){
                 NodeLevelPair leftNode = new NodeLevelPair(current.node.left, current.level + 1);
@@ -46,4 +52,3 @@ class NodeLevelPair{
         this.node = root;
     }
 }
-
