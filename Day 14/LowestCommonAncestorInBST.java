@@ -13,6 +13,7 @@ public class LowestCommonAncestorInBST {
         if(p.val == root.val || q.val == root.val){
             return root;
         }
+        
         if(smaller < root.val && larger > root.val){
             return root;
         }else if(smaller < root.val && larger < root.val){
