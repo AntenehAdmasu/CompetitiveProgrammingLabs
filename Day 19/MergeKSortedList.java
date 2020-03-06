@@ -8,7 +8,10 @@ public class MergeKSortedList {
     
     public ListNode mergeKLists(ListNode[] lists) {
         
-        if(lists.length == 0) return null;
+        if(lists.length == 0){
+            return null;
+        }
+        
         PriorityQueue<ListNode> heap = new PriorityQueue<ListNode>(new ListNodeComparator());
         ListNode handler = new ListNode(0);
         ListNode pointer = handler;
@@ -23,7 +26,9 @@ public class MergeKSortedList {
             ListNode node = heap.poll();
             handler.next = node;
             handler = handler.next;
-            if(node.next != null) heap.add(node.next);
+            if(node.next != null){
+                heap.add(node.next);
+            }
         }
         return pointer == null ? pointer : pointer.next;
     }
