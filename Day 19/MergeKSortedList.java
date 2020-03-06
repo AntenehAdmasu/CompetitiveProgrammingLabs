@@ -5,26 +5,27 @@ import java.util.PriorityQueue;
 
 public class MergeKSortedList {
 
+    
     public ListNode mergeKLists(ListNode[] lists) {
-
+        
+        if(lists.length == 0) return null;
         PriorityQueue<ListNode> heap = new PriorityQueue<ListNode>(new ListNodeComparator());
-        for (ListNode l : lists) {
-            while (l.next != null) {
-                heap.add(new ListNode(l.val));
-                l = l.next;
+        ListNode handler = new ListNode(0);
+        ListNode pointer = handler;
+        
+        for (ListNode l:lists) {
+            if(l != null){
+                heap.add(l);
             }
         }
-        ListNode handle = new ListNode(0);
-        ListNode head = heap.poll();
-        handle.next = head;
-
-        while (!heap.isEmpty()) {
+        
+        while (!heap.isEmpty()){
             ListNode node = heap.poll();
-            head.next = node;
-            head = node;
+            handler.next = node;
+            handler = handler.next;
+            if(node.next != null) heap.add(node.next);
         }
-
-        return handle.next;
+        return pointer == null ? pointer : pointer.next;
     }
 }
 
