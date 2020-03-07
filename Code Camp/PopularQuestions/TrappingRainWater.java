@@ -7,7 +7,7 @@ public class TrappingRainWater {
         System.out.println(new TrappingRainWater().trap(height));
     }
 
-    public int trap(int[] height) {
+    public int trapWithExtraArray(int[] height) {
 
         int length = height.length;
         if(length == 0){
@@ -35,6 +35,35 @@ public class TrappingRainWater {
             totalWater += waterLevel - height[i];
         }
 
+        return totalWater;
+
+    }
+
+    public int trap(int[] height) {
+        int left = 0;
+        int right = 0;
+        int totalWater = 0;
+        int leftMax = 0;
+        int rightMax = 0;
+
+        while(left < right){
+            if(height[left] < height[right]){
+                if(height[left] < leftMax){
+                    totalWater += leftMax - height[left];
+                }else{
+                    leftMax = height[left];
+                }
+                left++;
+            }else{
+                if(height[right] < rightMax){
+                    totalWater += rightMax - height[right];
+                }else{
+                    rightMax = height[right];
+                    right--;
+                }
+            }
+
+        }
         return totalWater;
 
     }
