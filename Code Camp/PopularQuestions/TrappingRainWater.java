@@ -41,7 +41,7 @@ public class TrappingRainWater {
 
     public int trap(int[] height) {
         int left = 0;
-        int right = 0;
+        int right = height.length - 1;
         int totalWater = 0;
         int leftMax = 0;
         int rightMax = 0;
@@ -59,8 +59,8 @@ public class TrappingRainWater {
                     totalWater += rightMax - height[right];
                 }else{
                     rightMax = height[right];
-                    right--;
                 }
+                right--;
             }
 
         }
