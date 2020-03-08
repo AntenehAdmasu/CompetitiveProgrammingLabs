@@ -1,4 +1,4 @@
-// Question link : https://leetcode.com/problems/making-a-large-island/submissions/
+// Question link : https://leetcode.com/problems/making-a-large-island/
 
 import java.util.HashMap;
 import java.util.HashSet;
