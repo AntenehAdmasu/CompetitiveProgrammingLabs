@@ -9,7 +9,6 @@ public class RottingOranges{
     public int orangesRotting(int[][] grid) {
         
         HashSet<Grid> visited = new HashSet<>();
-        int freshOrangesCount = 0;            
         LinkedList<Grid> queue = new LinkedList<>();
         int maxDays = 0;
         int orangeCount = 0;
