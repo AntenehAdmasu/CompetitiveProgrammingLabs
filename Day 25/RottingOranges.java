@@ -7,116 +7,76 @@ import java.util.Objects;
 
 public class RottingOranges{
     public int orangesRotting(int[][] grid) {
-
-        ArrayList<OrangeGrid> rottenOranges = new ArrayList();
-        HashSet<OrangeGrid> freshOrangesSeen = new HashSet<>();
-
-        int freshOrangesCount = 0;
-
-
-        int[][] arr = new int[grid.length][grid[0].length];
-
+        
+        HashSet<Grid> visited = new HashSet<>();
+        int freshOrangesCount = 0;            
+        LinkedList<Grid> queue = new LinkedList<>();
+        int maxDays = 0;
+        int orangeCount = 0;
+        
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[0].length; j++){
-                arr[i][j] = Integer.MAX_VALUE;
+                orangeCount += grid[i][j] != 0 ? 1 : 0;
                 if(grid[i][j] == 2){
-                    OrangeGrid rotOr = new OrangeGrid(i,j,0);
-                    rottenOranges.add(rotOr);
-                }else if(grid[i][j] == 1){
-                    freshOrangesCount++;
+                    Grid rotOr = new Grid(i,j,0);
+                    queue.add(rotOr);
                 }
             }
-
+            
         }
+            
+        while(!queue.isEmpty()){
 
-        for(OrangeGrid rotten: rottenOranges){
-            LinkedList<OrangeGrid> queue = new LinkedList<>();
-            HashSet<OrangeGrid> visited = new HashSet<>();
-            queue.add(rotten);
+            Grid current = queue.poll();
+            visited.add(current);
+            maxDays = Math.max(maxDays, current.days);
 
-            while(!queue.isEmpty()){
+            //top
+            if (current.x - 1 >= 0 && grid[current.x - 1][current.y] == 1 && !visited.contains(new Grid(current.x - 1, current.y, current.days + 1))) {
+                Grid topCell = new Grid(current.x - 1, current.y, current.days + 1);
+                queue.add(topCell);
+                visited.add(topCell);
+            }
+            
+            //bottom
+            if (current.x + 1 < grid.length && grid[current.x + 1][current.y] == 1 && !visited.contains(new Grid(current.x + 1, current.y, current.days + 1))) {
+                Grid bottomCell = new Grid(current.x + 1, current.y, current.days + 1);
+                queue.add(bottomCell);
+                visited.add(bottomCell);
 
-                OrangeGrid current = queue.poll();
-                visited.add(current);
+            }
+            
+            //left
+            if (current.y - 1 >= 0 && grid[current.x][current.y-1] == 1 && !visited.contains(new Grid(current.x, current.y-1, current.days + 1))) {
+                Grid leftCell = new Grid(current.x, current.y - 1, current.days + 1);
+                queue.add(leftCell);
+                visited.add(leftCell);
 
-                ArrayList<OrangeGrid> freshNeighbours = getFreshNeighbours(current, grid);
-
-                for(OrangeGrid neighbour: freshNeighbours){
-                    if(visited.contains(neighbour)){
-                        continue;
-                    }
-                    int daysTook = current.days + 1;
-                    OrangeGrid newRotten = new OrangeGrid(neighbour.x, neighbour.y, daysTook);
-                    queue.add(newRotten);
-                    arr[neighbour.x][neighbour.y] = Math.min(arr[neighbour.x][neighbour.y], daysTook);
-                    freshOrangesSeen.add(neighbour);
-
-                }
+            }
+            
+            //right
+            if (current.y + 1 < grid[0].length && grid[current.x][current.y+1] == 1 && !visited.contains(new Grid(current.x, current.y+1, current.days + 1))) {
+                Grid rightCell = new Grid(current.x, current.y + 1, current.days + 1);
+                queue.add(rightCell);
+                visited.add(rightCell);
 
             }
 
         }
-        if(freshOrangesSeen.size() < freshOrangesCount){
-            System.out.println(freshOrangesSeen.size() + " : " + freshOrangesCount);
-            return -1;
-        }
-
-        int maxDays = 0;
-        for(int[] row: arr){
-            for(int x: row){
-                if(x == Integer.MAX_VALUE) continue;
-                maxDays = Math.max(maxDays, x);
-            }
-        }
-        return maxDays;
-
-
-
-    }
-
-
-    public ArrayList<OrangeGrid> getFreshNeighbours(OrangeGrid cell, int[][] matrix){
-
-        ArrayList<OrangeGrid> neighbours = new ArrayList<>();
-
-        //top
-        if (cell.x - 1 >= 0 && matrix[cell.x - 1][cell.y] == 1) {
-            OrangeGrid topCell = new OrangeGrid(cell.x - 1, cell.y,0);
-            neighbours.add(topCell);
-        }
-
-        //bottom
-        if (cell.x + 1 < matrix.length && matrix[cell.x + 1][cell.y] == 1) {
-            OrangeGrid bottomCell = new OrangeGrid(cell.x + 1, cell.y,0);
-            neighbours.add(bottomCell);
-        }
-
-        //left
-        if (cell.y - 1 >= 0 && matrix[cell.x][cell.y - 1] == 1) {
-            OrangeGrid leftCell = new OrangeGrid(cell.x, cell.y - 1,0);
-            neighbours.add(leftCell);
-        }
-
-
-        //right
-        if (cell.y + 1 < matrix[0].length && matrix[cell.x][cell.y + 1] == 1) {
-            OrangeGrid rightCell = new OrangeGrid(cell.x, cell.y + 1,0);
-            neighbours.add(rightCell);
-        }
-
-        return neighbours;
-
+            
+        return orangeCount == visited.size() ? maxDays : -1;
+        
     }
 }
 
 
-class OrangeGrid {
+class Grid {
 
     int x;
     int y;
     int days;
-
-    public OrangeGrid(int x, int y, int days) {
+    
+    public Grid(int x, int y, int days) {
         this.x = x;
         this.y = y;
         this.days = days;
@@ -124,8 +84,8 @@ class OrangeGrid {
 
     @Override
     public boolean equals(Object obj) {
-        OrangeGrid newOrangeGrid = (OrangeGrid) obj;
-        return this.x == newOrangeGrid.x && this.y == newOrangeGrid.y;
+        Grid newGrid = (Grid) obj;
+        return this.x == newGrid.x && this.y == newGrid.y;
     }
 
     @Override
