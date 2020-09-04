@@ -22,7 +22,6 @@ public class RankTransfromArray {
         int prev = Integer.MIN_VALUE;
         while (!heap.isEmpty()) {
             Item polled = heap.poll();
-            System.out.println("polled " + polled.value + " index " + index);
             index += polled.value > prev ? 1 : 0;
             answer[polled.index] = index;
             prev = polled.value;
@@ -36,9 +35,7 @@ public class RankTransfromArray {
             arrayWithIndices[i] = new int[]{arr[i], i};
         }
         Arrays.sort(arrayWithIndices, new ArrayComparator());
-        for (int[] item : arrayWithIndices) {
-            System.out.println(Arrays.toString(item));
-        }
+        
         int[] answer = new int[arr.length];
         int rank = 0;
         int previous = Integer.MIN_VALUE;
@@ -59,7 +56,6 @@ public class RankTransfromArray {
             min = Math.min(item, min);
             max = Math.max(item, max);
         }
-        System.out.println(max + " ^ " + min);
 
         int[] ranks = new int[max - min + 1];
 
